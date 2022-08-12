@@ -26,8 +26,8 @@ const getAboutPage = (req, res) => {
   res.render("about.ejs");
 };
 
-const getDeleteUser = (req, res) => {
-  pool.execute("delete from users where id = ?", [req.body.userId]);
+const getDeleteUser = async (req, res) => {
+  await pool.execute("delete from users where id = ?", [req.body.userId]);
   return res.redirect("/");
 };
 
